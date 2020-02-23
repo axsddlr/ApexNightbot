@@ -17,13 +17,29 @@ With chat:
 With interface:  
 https://beta.nightbot.tv/commands/custom  
 
+Here's what the response should contain for Nightbot to reply with your current rank:  
+
+    $(urlfetch http://yourservername.herokuapp.com/apexstats.php?platform=YourPlatformHere&nick=YourNickHere)
+- Adjust the URL parameters to fit your purposes.
+- ?platform= *(xbl, psn or origin.)*  
+**xbl** for Xbox One,   
+**psn** for PS4,  
+**origin** for PC.  
+
+- &nick= *(Your username on the specific platform.)*
+- Specify a command after the *&command=* query parameter at the end of the URL in the $(urlfetch) method.   
+In the example above I specified "*rank*" as for the current rank in the current season.  
+
+Note:  
+- **You CAN write custom text before and after $(urlfetch) in the response!**  
+- Do NOT forget to close any opening parantheses '(' with a closing ')' at the end!  
+- You can let the user search for a player himself by doing *?platform=$(1)&nick=$(2)*.
+The user will have to put a platform and a nick as arguments separated by a space after your command.
+
+
 ## Deployment to Heroku
 
 replace **$apikey = '';** in **apexstats.php** your api key. [GET API KEY HERE](https://api.mozambiquehe.re/getkey)
-
-replace **$platform = '';** with X1, PC, or PS4
-
-replace **$player = '';** with your username
 
 
     $ git init
