@@ -20,7 +20,9 @@ https://beta.nightbot.tv/commands/custom
 ## Deployment to Heroku
 
 replace **$apikey = '';** in **apexstats.php** your api key. [GET API KEY HERE](https://api.mozambiquehe.re/getkey)
+
 replace **$platform = '';** with X1, PC, or PS4
+
 replace **$player = '';** with your username
 
 
