@@ -20,9 +20,7 @@ https://beta.nightbot.tv/commands/custom
 ## Deployment to Heroku
 
 replace **$apikey = '';** in **apexstats.php** your api key. [GET API KEY HERE](https://api.mozambiquehe.re/getkey)
-
 replace **$platform = '';** with X1, PC, or PS4
-
 replace **$player = '';** with your username
 
 
@@ -36,10 +34,6 @@ replace **$player = '';** with your username
     $ heroku run python manage.py migrate
 
 See also, a [ready-made application](https://github.com/heroku/python-getting-started), ready to deploy.
-
-or fork this Repo and press
-
-https://heroku.com/deploy
 
 ## Credit
 
