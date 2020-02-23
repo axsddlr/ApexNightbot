@@ -37,6 +37,10 @@ replace **$player = '';** with your username
 
 See also, a [ready-made application](https://github.com/heroku/python-getting-started), ready to deploy.
 
+or fork this Repo and press
+
+https://heroku.com/deploy
+
 ## Credit
 
 **Giuthub** https://github.com/HugoDerave/ApexLegendsAPI
