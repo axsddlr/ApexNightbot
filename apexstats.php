@@ -6,7 +6,7 @@ $apikey = '';
 $request = strtolower($_GET['command']);
 if (!$request)
 {
-    echo '\'&command=\' parameter not defined! (Options: \'rank\', \'stats\' or \'time\')';
+    echo '\'&command=\' parameter not defined! (Options: \'rank\', \'stats\')';
     return;
 };
 
@@ -61,6 +61,33 @@ function _getJSON($url)
     return json_decode($curlRes, true);
 };
 
+// Romanize numbers for better aesthetic
+function romanize($num)  
+{ 
+    // Be sure to convert the given parameter into an integer
+    $n = intval($num);
+    $result = ''; 
+ 
+    // Declare a lookup array that we will use to traverse the number: 
+    $lookup = array(
+        'IV' => 4, 'III' => 3, 'II' => 2, 'I' => 1
+    ); 
+ 
+    foreach ($lookup as $roman => $value)  
+    {
+        // Look for number of matches
+        $matches = intval($n / $value); 
+ 
+        // Concatenate characters
+        $result .= str_repeat($roman, $matches); 
+ 
+        // Substract that from the number 
+        $n = $n % $value; 
+    } 
+
+    return $result; 
+}; 
+
 if ($request == 'stats')
 {
 
@@ -77,15 +104,18 @@ if ($request == 'stats')
     // Kill/Death Ratio
     $adr = round($dmg / $games_played, 2);
 
-    // echo 'Lv.'.$lvl['player_profiles'][0]['level'].' | '.$wlRatio.' W/L ratio | '.$kdRatio.' K/D ratio';
     echo "$player Stats: Lv. " . $lvl . " | Lifetime Kills: " . $kills . " | Lifetime Damage " . $dmg . " | Games Played: " . $games_played . " | ADR: " . $adr . " ";
 };
 
 if ($request == 'rank')
 {
-
-    $rank = _getJSON('https://api.mozambiquehe.re/bridge?version=4&platform=' . $machine . '&player=' . $player . '&auth=' . $apikey);
-    echo " $player Apex Rank: " . $rank['global']['rank']['rankName'] . " " . $rank['global']['rank']['rankDiv'] . " 「" . $rank['global']['rank']['rankScore'] . "ᴿᴾ」";
+	$data = _getJSON('https://api.mozambiquehe.re/bridge?version=4&platform=' . $machine . '&player=' . $player . '&auth=' . $apikey);
+     
+	$rdiv = intval($data['global']['rank']['rankDiv']);
+	 
+        $rank = _getJSON('https://api.mozambiquehe.re/bridge?version=4&platform=' . $machine . '&player=' . $player . '&auth=' . $apikey);
+        
+        echo " $player Apex Rank: " . $rank['global']['rank']['rankName'] . " " . romanize($rdiv) .  " 「" . $rank['global']['rank']['rankScore'] . "ᴿᴾ」";
 
     // More Explained Rank info output
     // echo "Apex Rank: ".$result['global']['rank']['rankName']." ".$result['global']['rank']['rankDiv']." ";
