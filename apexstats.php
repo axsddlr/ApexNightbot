@@ -85,7 +85,7 @@ if ($request == 'rank')
 {
 
     $rank = _getJSON('https://api.mozambiquehe.re/bridge?version=4&platform=' . $machine . '&player=' . $player . '&auth=' . $apikey);
-    echo " $player Apex Rank: " . $rank['global']['rank']['rankName'] . " " . $rank['global']['rank']['rankDiv'] . " || " . $rank['global']['rank']['rankScore'] . " RP";
+    echo " $player Apex Rank: " . $rank['global']['rank']['rankName'] . " " . $rank['global']['rank']['rankDiv'] . " 「" . $rank['global']['rank']['rankScore'] . "ᴿᴾ」";
 
     // More Explained Rank info output
     // echo "Apex Rank: ".$result['global']['rank']['rankName']." ".$result['global']['rank']['rankDiv']." ";
