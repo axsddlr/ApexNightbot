@@ -104,7 +104,7 @@ if ($request == 'stats')
     // Kill/Death Ratio
     $adr = round($dmg / $games_played, 2);
 
-    echo "$player Stats: Lv. " . $lvl . " | Lifetime Kills: " . $kills . " | Lifetime Damage " . $dmg . " | Games Played: " . $games_played . " | ADR: " . $adr . " ";
+    echo "$player Stats: Lv. " . $lvl . " | Lifetime Kills: " . $kills . " | Lifetime Damage: " . $dmg . " | Games Played: " . $games_played . " | ADR: " . $adr . " ";
 };
 
 if ($request == 'rank')
