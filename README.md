@@ -19,7 +19,7 @@ https://beta.nightbot.tv/commands/custom
 
 Here's what the response should contain for Nightbot to reply with your current rank:  
 
-    $(urlfetch http://yourservername.herokuapp.com/apexstats.php?platform=YourPlatformHere&nick=YourNickHere)
+    $(urlfetch http://yourservername.herokuapp.com/apexstats.php?platform=YourPlatformHere&nick=YourNickHere&command=rank)
 - Adjust the URL parameters to fit your purposes.
 - ?platform= *(xbl, psn or origin.)*  
 **xbl** for Xbox One,   
